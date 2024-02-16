@@ -1,2 +1,2 @@
 # html-css
- Execícios de HTML e CSS Curso em Vídeo
+ Exercícios de HTML e CSS Curso em Vídeo
