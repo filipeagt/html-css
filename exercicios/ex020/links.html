@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        /* SELETORES PERSONALIZADOS
+            #  = id
+            .  = class
+            :  = pseudo-class
+            :: = pseudo-element
+            >  = children
+        */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:visited {
+            color: darkred;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: yellow;
+        }
+
+        .especial {
+            background-color: rgb(250, 130, 130);
+        }
+
+        .especial::before {
+            content: "\00FFEB";
+        }
+
+        .especial::after {
+            content: "\00FFE9";            
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalizando Links</h1>
+    <ul>
+        <li><a href="https://github.com/filipeagt" target="_blank">Repositório GitHub</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7jO2cSxIEAFGbzlp-a6Rdg" class="especial">Canal no Youtube</a></li>
+        <li><a href="https://www.cursoemvideo.com" class="especial">Site do Curso em Vídeo</a></li>
+    </ul>
+</body>
+</html>
