@@ -19,3 +19,6 @@
  Links desafios:
 
  1. [Projeto Android](desafios/d010/android.html)
+ 1. [Desafio Astronauta](desafios/d011)
+ 1. [Projeto Cordel](desafios/d012)
+
