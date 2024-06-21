@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/*
+Paleta de cores:
+#B9B8BF
+#F25C05
+*/
+
+body {
+    background-image: linear-gradient(90deg, #B9B8BF, #011F26);
+}
