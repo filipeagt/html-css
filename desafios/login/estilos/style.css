@@ -64,3 +64,58 @@ div#formulario > h1 {
 div#formulario > p {
     font-size: 0.8em;
 }
+
+form > div.campo {
+    background-color: #B9B8BF;
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    margin: 5px 0px;
+}
+
+div.campo > label {
+    display: none;
+}
+
+form > input[type=submit] {
+    display: block;
+    font-size: 1em;
+    width: 100%;
+    height: 40px;
+    background-color: #e98528;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.300);
+    
+}
+
+form > input[type=submit]:hover {
+    background-color: #e2954d;
+}
+
+form > a.botao {
+    display: block;
+    text-align: center;    
+    font-size: 1em;
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    padding-top: 10px;
+    background-color: white;
+    color: #e2954d;
+    border: 1px solid #e98528;
+    border-radius: 5px;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.300);
+}
+
+form > a.botao:hover {
+    background-color: #e2954d;
+    color: white;
+}
+
+form > a.botao > span {
+    font-size: .9em;    
+}
