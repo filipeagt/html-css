@@ -1,0 +1,103 @@
+@charset 'UTF-8';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.bandeira {
+    position: relative;
+    margin: 10px;
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+}
+
+#japao {    
+    background-color: white;        
+}
+
+#japao > div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#indonesia {
+    background-color: white;    
+}
+
+#indonesia > div {
+    width: 100%;
+    height: 50%;
+    background-color: red;
+}
+
+#italia {
+    background-color: red;
+}
+
+#italia > div {
+    background-color: white;
+    width: 133px;
+    height: 100%;
+}
+
+#italia > div > div{
+    background-color: green;
+    width: 67px;
+    height: 100%;
+}
+
+#inglaterra {
+    background-color: white;
+}
+
+#inglaterra > div.v {
+    position: relative;
+    width: 20px;
+    height: 100%;
+    background-color: red;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+#inglaterra > div.h {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: red;
+    bottom: 50%;
+    transform: translate(0,-50%);
+}
+
+#republicatcheca {
+    background-color: red;
+}
+
+#republicatcheca > .h {
+    background-color: white;
+    width: 100%;
+    height: 50%;
+}
+
+#republicatcheca > .t {
+    position: relative;
+    background-color: blue;
+    width: 106px;
+    height: 106px;
+    bottom: 53px;
+    left: -53px;
+    transform: rotate(45deg);    
+}
