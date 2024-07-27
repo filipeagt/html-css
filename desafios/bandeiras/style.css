@@ -65,21 +65,23 @@ body {
 }
 
 #inglaterra > div.v {
-    position: relative;
+    position: absolute;
     width: 20px;
     height: 100%;
     background-color: red;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,0%);
+    transform: translate(-50%,-50%);
 }
 
 #inglaterra > div.h {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 20px;
     background-color: red;
-    bottom: 50%;
-    transform: translate(0,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 #republicatcheca {
@@ -93,11 +95,98 @@ body {
 }
 
 #republicatcheca > .t {
-    position: relative;
+    position: absolute;
     background-color: blue;
     width: 106px;
     height: 106px;
-    bottom: 53px;
+    bottom: 22px;
     left: -53px;
     transform: rotate(45deg);    
+}
+
+#reinounido {
+    background-color: blue;
+}
+
+#reinounido > div {
+    background-color: white;
+}
+
+#reinounido > div > div {
+    background-color: red;
+}
+
+#reinounido > .a {
+    position: absolute;
+    width: 25px;
+    height: 167%;
+    left: 44%;
+    top: -34%;
+    transform: rotate(-54deg);
+    padding-left: 5px;
+}
+
+#reinounido > .a > div {
+    background-color: red;
+    width: 10px;
+    height: 100%;    
+}
+
+#reinounido > .b {
+    position: absolute;
+    width: 25px;
+    height: 167%;
+    left: 44%;
+    top: -34%;
+    transform: rotate(54deg);
+    padding-left: 5px;
+}
+
+#reinounido > .b > div {
+    background-color: red;
+    width: 10px;
+    height: 100%;
+    
+}
+
+#reinounido > .c {
+    position: absolute;
+    width: 35px;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding-left: 10px;
+}
+
+#reinounido > .c > div {
+    background-color: red;
+    width: 15px;
+    height: 100%;
+}
+
+#reinounido > .d {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding-top: 10px;
+}
+
+#reinounido > .d > .h {
+    background-color: red;
+    width: 100%;
+    height: 15px;
+}
+
+#reinounido > .d > .v {
+    position: absolute;
+    background-color: red;
+    width: 15px;
+    height: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
