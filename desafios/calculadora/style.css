@@ -11,23 +11,28 @@ body {
 }
 
 table {
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     margin: auto;
     margin-top: 20px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
     background-color: rgb(17, 17, 17);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.397);
+    border-spacing: 10px;
+   
 }
 
 td {
-    border: 1px solid white;
-    width: 35px;
-    height: 35px;
-    padding: 5px;
+    /*border: 1px solid white;*/
+    width: 70px;
+    height: 70px;
+    padding: 10px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 35px;
+    font-size: 2em;
     font-weight: bold;
+    background-color: rgb(51, 51, 51);
 }
 
 td:hover {
@@ -36,14 +41,15 @@ td:hover {
 
 td#display {
     font-family: monospace;
-    font-size: 2em;
+    font-size: 4em;
     font-weight: normal;
     text-align: right;
-    background-color: rgb(200, 220, 200);
-    color: black;
-    width: 152px;
-    max-width: 152px;
+    background-color: rgb(17, 17, 17);
+    color: white;
     overflow: hidden;
+    border-radius: 3px;
+    width: 300px;
+    max-width: 300px;
 }
 
 .cor {
@@ -53,4 +59,13 @@ td#display {
 
 .cor:hover {
     background-color: rgb(255, 184, 51);
+}
+
+.cor2 {
+    background-color: rgb(172, 172, 172);
+    color: black;
+}
+
+.cor2:hover {
+    background-color: rgb(133, 133, 133);
 }
