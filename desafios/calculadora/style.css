@@ -11,7 +11,6 @@ body {
 }
 
 table {
-    /*border: 1px solid white;*/
     margin: auto;
     margin-top: 10px;
     padding: 10px;
@@ -19,24 +18,22 @@ table {
     color: white;
     background-color: rgb(17, 17, 17);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.397);
-    border-spacing: 10px;
-   
+    border-spacing: 10px;   
 }
 
 td {
-    /*border: 1px solid white;*/
     width: 70px;
     height: 70px;
     padding: 10px;
     text-align: center;
     border-radius: 35px;
     font-size: 2em;
-    font-weight: bold;
-    background-color: rgb(51, 51, 51);
+    font-weight: normal;
+    background-color: rgb(66, 66, 66);
 }
 
 td:hover {
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(83, 83, 83);
 }
 
 td#display {
@@ -56,7 +53,8 @@ td#display {
 
 .cor {
     background-color: rgb(255, 166, 0);
-    color: black;
+    color: white;
+    font-size: 2.5em;
 }
 
 .cor:hover {
