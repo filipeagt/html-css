@@ -13,7 +13,7 @@ body {
 table {
     /*border: 1px solid white;*/
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
     color: white;
@@ -36,14 +36,16 @@ td {
 }
 
 td:hover {
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(71, 71, 71);
 }
 
 td#display {
-    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 4em;
     font-weight: normal;
     text-align: right;
+    padding: 0px;
+    padding-top: 10px;
     background-color: rgb(17, 17, 17);
     color: white;
     overflow: hidden;
@@ -67,5 +69,5 @@ td#display {
 }
 
 .cor2:hover {
-    background-color: rgb(133, 133, 133);
+    background-color: rgb(206, 206, 206);
 }

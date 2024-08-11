@@ -12,25 +12,41 @@ function calc(tecla) {
             break
         case 'sqrt':
             acumulador = Math.sqrt(Number(display.innerText))
-            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'})
-            tecla = '='
-            
+            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'}).replaceAll(',','')
+            tecla = '=' 
+            break           
         case '%':
-            break
-        case '+':
-            /*acumulador += Number(display.innerText.replace(',',''))
-            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'})
+            switch(operador){
+                case '+':
+                    acumulador += acumulador*Number(display.innerText)/100
+                    break
+                case '-':
+                    acumulador -= acumulador*Number(display.innerText)/100
+                    break
+                default:
+                    acumulador += acumulador*Number(display.innerText)/100
+            }
+            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'}).replaceAll(',','')
             operador = tecla
             operando = true
+            tecla = '='
+            break
+        case '+':
+            /*if(operando) acumulador += Number(display.innerText)
+            else acumulador = Number(display.innerText)
+            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'}).replaceAll(',','')
+            operador = tecla
+            operando = true
+            tecla = '='
             break*/
         case '/':
         case '*':
         case '-':
-            acumulador = Number(display.innerText.replace(',',''))
-            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'})
+            acumulador = Number(display.innerText)
+            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'}).replaceAll(',','')
             operador = tecla
             operando = true
-            //tecla = '='
+            tecla = '='
             break
         
         case '=':
@@ -50,8 +66,8 @@ function calc(tecla) {
                 default:
                     acumulador = Number(display.innerText)
             }
-            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'})
-            acumulador = 0
+            display.innerText = acumulador.toLocaleString('en', {maximumSignificantDigits: '8'}).replaceAll(',','')
+            if(!operando) acumulador = 0
             operando = true
             operador = ''
             break
