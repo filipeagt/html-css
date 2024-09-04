@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Resistores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculadora de resistores</h1>
+    <div id="result"><p>0Ω</p></div>
+    <div id="resistor">
+        <div class="faixa" id="f1"></div>
+        <div class="faixa" id="f2"></div>
+        <div class="faixa" id="f3"></div>
+        <div class="faixa" id="f4"></div>
+    </div>
+    <div id="seletores">
+        <select name="faixa1" id="faixa1" onclick="faixa(1)">
+            <option value="" selected>Faixa 1</option>
+            <option value="0">Preto</option>
+            <option value="1">Marrom</option>
+            <option value="2">Vermelho</option>
+            <option value="3">Laranja</option>
+            <option value="4">Amarelo</option>
+            <option value="5">Verde</option>
+            <option value="6">Azul</option>
+            <option value="7">Violeta</option>
+            <option value="8">Cinza</option>
+            <option value="9">Branco</option>
+        </select>
+        <select name="faixa2" id="faixa2" onclick="faixa(2)">
+            <option value="" selected>Faixa 2</option>
+            <option value="0">Preto</option>
+            <option value="1">Marrom</option>
+            <option value="2">Vermelho</option>
+            <option value="3">Laranja</option>
+            <option value="4">Amarelo</option>
+            <option value="5">Verde</option>
+            <option value="6">Azul</option>
+            <option value="7">Violeta</option>
+            <option value="8">Cinza</option>
+            <option value="9">Branco</option>
+        </select>
+        <select name="faixa3" id="faixa3" onclick="faixa(3)">
+            <option value="" selected>Faixa 3</option>
+            <option value="Ω">Preto</option>
+            <option value="0Ω">Marrom</option>
+            <option value="00Ω">Vermelho</option>
+            <option value="kΩ">Laranja</option>
+            <option value="0kΩ">Amarelo</option>
+            <option value="00kΩ">Verde</option>
+            <option value="MΩ">Azul</option>
+            <option value="0MΩ">Violeta</option>
+            <option value="00MΩ">Cinza</option>
+            <option value="GΩ">Branco</option>
+            <option value="00mΩ">Ouro</option>
+            <option value="0mΩ">Prata</option>
+        </select>
+        <select name="faixa4" id="faixa4" onclick="faixa(4)">
+            <option value="" selected>Faixa 4</option>
+            <option value="1%">Marrom</option>
+            <option value="2%">Vermelho</option>
+            <option value="5%">Ouro</option>
+            <option value="10%">Prata</option>
+            <option value="20%">Branco</option>
+        </select>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
