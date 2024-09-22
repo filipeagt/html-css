@@ -16,6 +16,8 @@ body {
     background-color: white;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    width: 100%;
 }
 
 .logo {
@@ -71,6 +73,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: white;
+    padding-top: 100px;
 }
 
 .headline {
@@ -187,4 +190,10 @@ footer {
     color: white;
     font-size: 34px;
 }
-/* 01:10 */
+
+.whats {
+    position:  fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 100px;
+}
