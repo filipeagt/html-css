@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --azul: #1877f2;
+    --fundo: #f2f4f7;
+    --cinza: #8a8d91;
+    --escuro: #1c1e21;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: var(--fundo);
+}
+
+h1.logo {
+    color: var(--azul);
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 2.6em;
+    
+    text-align: center;
+    padding-top: 48px;
+    padding-bottom: 9px;
+    margin: 0px;
+}
+
+form {
+    display: block;
+    font-size: 0.9em;
+    max-width: 400px;
+    min-width: 400px;
+    padding: 15px;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 75px;
+    border-top: 1px solid rgb(216, 216, 216);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.178);
+}
+
+input {    
+    margin: 6px;
+    width: 98%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #8a8d9144;
+    font-size: 1.2em;
+    color: var(--escuro);
+}
+
+input::placeholder {
+    color: #8a8d91d8;
+}
+
+input[type=button] {
+    background-color: var(--azul);
+    color: white;
+    font-size: 1.4em;
+    font-weight: bolder;
+    padding: 12px;
+}
+
+input[type=button]:hover {
+    cursor: pointer;
+}
+
+form > a {
+    text-decoration: none;
+    color: var(--azul);
+    margin: 15px 5px 20px 5px;
+    display: inline-block;
+}
+
+form > a:hover {
+    text-decoration: underline;
+}
+
+
+h2 {
+    font-size: 1.3em;
+    font-weight: normal;
+    color: var(--escuro);
+    margin-top: 9px;
+}
+
+footer {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 115px;
+    font-size: 0.8em;
+    word-spacing: 10px;
+    padding: 40px;
+    color: var(--cinza);
+}
+
+span.maisEspaco {
+    word-spacing: 20px;
+}
+
+hr {
+    border-top: 1px solid #8a8d9144;
+}
+
+footer button {
+    display: inline-block;
+    font-size: 1.4em;
+    color: var(--cinza);
+    font-weight: bold;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 5px;
+    max-height: 18px;
+}
+
+.autor {
+    margin-top: 30px;
+    font-size: 0.8em;
+    color: var(--escuro);
+}
