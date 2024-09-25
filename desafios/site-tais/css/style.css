@@ -37,11 +37,11 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  nav {
+  nav.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 45px 0; /* Increased from 35px to 45px */
+    padding: 10px;
   }
 
   .logo {
