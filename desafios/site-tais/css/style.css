@@ -229,13 +229,13 @@
     margin-bottom: 10px;
   }
 
-  .footer-section ul li a {
+  .footer-section ul li a, .telefone {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
-  .footer-section ul li a:hover {
+  .footer-section ul li a:hover, .telefone:hover {
     color: var(--secondary-color);
   }
 
