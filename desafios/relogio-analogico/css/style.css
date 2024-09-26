@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: orange;
+}
+
+#relogio {
+    background-color: white;    
+    border-radius: 50%;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#n1 {
+    position: absolute;
+    top: 11%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+}
+
+#n2 {
+    position: absolute;
+    top: 29%;
+    left: 89%;
+    transform: translate(-50%, -50%);
+}
+
+#n3 {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+}
+
+#n4 {
+    position: absolute;
+    top: 71%;
+    left: 89%;
+    transform: translate(-50%, -50%);
+}
+
+#n5 {
+    position: absolute;
+    top: 89%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+}
+
+#n6 {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#n7 {
+    position: absolute;
+    top: 89%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+}
+
+#n8 {
+    position: absolute;
+    top: 71%;
+    left: 11%;
+    transform: translate(-50%, -50%);
+}
+
+#n9 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+
+#n10 {
+    position: absolute;
+    top: 29%;
+    left: 11%;
+    transform: translate(-50%, -50%);
+}
+
+#n11 {
+    position: absolute;
+    top: 11%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+}
+
+#n12 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cor {
+    width: 100%;
+    height: 60%;
+    background-color: black;
+}
+
+#h {
+    position: absolute;
+    width: 3%;
+    height: 70%;
+    top: 15%;
+    left: 48.5%;
+    rotate: 30deg;
+}
+
+#m {
+    position: absolute;
+    width: 2%;
+    height: 80%;    
+    top: 10%;
+    left: 49%;
+    rotate: 60deg;
+}
+
+#s {
+    position: absolute;
+    width: 1%;
+    height: 83%;
+    top: 8.5%;
+    left: 49.5%;
+    rotate: 0deg;
+}
+
+#s .cor {
+    height: 63%;
+    background-color: red;
+}
+
+#pin {
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    border-radius: 50%;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (orientation: landscape) {
+    #relogio {
+        width: 95vh;
+        height: 95vh;
+        font-size: 10vh;
+        border: 3vh solid black;
+    }
+}
+
+@media (orientation: portrait) {
+    #relogio {
+        width: 95vw;
+        height: 95vw;
+        font-size: 10vw;
+        border: 3vw solid black;
+    }
+}
