@@ -116,7 +116,7 @@ body {
     height: 70%;
     top: 15%;
     left: 48.5%;
-    rotate: 30deg;
+    rotate: 0deg;
 }
 
 #m {
@@ -125,7 +125,7 @@ body {
     height: 80%;    
     top: 10%;
     left: 49%;
-    rotate: 60deg;
+    rotate: 0deg;
 }
 
 #s {

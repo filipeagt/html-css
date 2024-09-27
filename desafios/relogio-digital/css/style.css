@@ -1,0 +1,32 @@
+@font-face {
+    font-family: '7-seg';
+    src: url(../fonts/DSEG7Classic-Bold.ttf) format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#relogio {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    height: 30vw;
+    background-color: black;
+    color: brown;
+    text-shadow: 0px 0px 2vw rgba(255, 0, 0, 0.8);
+    border-radius: 5px;
+    font-family: '7-seg';
+    font-size: 17vw;
+
+}

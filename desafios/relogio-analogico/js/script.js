@@ -11,7 +11,7 @@ function relogio() {
         let minutos = tempo.getMinutes()
         let horas = tempo.getHours()
 
-        pontHora.style.rotate = `${horas < 12 ? horas * 30 : (horas - 12) * 30}deg`
+        pontHora.style.rotate = `${(horas < 12 ? horas * 30 : (horas - 12) * 30) + parseInt(minutos / 12) * 6}deg`
         pontMinuto.style.rotate = `${minutos * 6}deg`
         pontSegundo.style.rotate = `${segundos * 6}deg`
         
