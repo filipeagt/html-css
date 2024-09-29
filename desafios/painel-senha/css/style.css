@@ -1,0 +1,39 @@
+@font-face {
+    font-family: '7-seg';
+    src: url(../fonts/DSEG7Classic-Bold.ttf) format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#display {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: brown;
+    text-shadow: 0px 0px 2vw rgba(255, 0, 0, 0.8);
+    font-family: '7-seg';
+    font-size: 40vw;
+    flex: 95%;
+}
+
+#msg {   
+    color: white;
+    flex: 5%;
+}
