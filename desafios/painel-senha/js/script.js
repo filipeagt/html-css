@@ -1,3 +1,5 @@
+var senhaForm = document.getElementById('next')
+
 function proximaSenha() {
     let display = document.getElementById('display')
     const bip = new Audio('audio/bip.mp3')
@@ -17,7 +19,13 @@ function habilitaSom() {
 
 
 function chamar() {
-    let senhaForm = document.getElementById('next')
     localStorage.setItem('senha', senhaForm.value)
     senhaForm .value = parseInt(senhaForm.value) + 1
 }
+
+senhaForm.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault()
+        document.getElementById('botao').click()
+    }
+})
