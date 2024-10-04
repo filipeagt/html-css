@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+#ponto {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: yellow;
+    color: black;
+    rotate: 90deg;
+    font-size: 2em;
+    text-align: center;
+    border: 2px solid black;
+    top: 50px;
+    left: 50px;
+}
