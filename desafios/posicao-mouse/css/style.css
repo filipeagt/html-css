@@ -1,0 +1,32 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: whitesmoke;
+    height: 100vh;
+    cursor: move;
+    overflow: hidden;
+}
+
+#mira {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: red;
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 100%;
+    left: 0px;
+    transform: translate(-50%, -50%);
+}
