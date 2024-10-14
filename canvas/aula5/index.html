@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 5</title>
+    
+</head>
+<body onload="desenha()">
+    <canvas id="tela1" width="500" height="500" style="border: 1px solid black;">
+        Seu navegador não suporta o elemento Canvas
+    </canvas>
+    <script>
+        var canvas = document.getElementById('tela1')
+        var ctx = canvas.getContext('2d')
+        let px = 0, py = 10
+        let anima
+        let larRet = altRet = 50
+        let lCanvas = aCanvas = 500
+        let dx = 1
+
+        function desenha() {            
+            ctx.clearRect(0,0,lCanvas,aCanvas)
+
+            ctx.fillStyle = '#00f'
+            ctx.fillRect(px,py,larRet,altRet)
+
+            px+=dx
+            
+            if (px >= lCanvas-larRet || px <= 0) dx *= -1     
+
+            anima = requestAnimationFrame(desenha)
+        }
+    </script>
+</body>
+</html>
