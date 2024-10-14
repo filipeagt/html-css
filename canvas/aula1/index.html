@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 1</title>
+</head>
+<body>
+    <canvas id="tela1" width="500" height="500" style="border: 1px solid black;">
+        Seu navegador não suporta o elemento Canvas
+    </canvas>
+    <script>
+        var canvas = document.getElementById('tela1')
+        var ctx = canvas.getContext('2d')
+
+        ctx.fillStyle = '#00f'
+        ctx.fillRect(0,0,100,100)
+
+        ctx.fillStyle = 'rgba(255,0,0,.5)'
+        ctx.fillRect(50,50,100,100)
+    </script>
+</body>
+</html>
