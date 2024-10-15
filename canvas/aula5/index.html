@@ -13,11 +13,11 @@
     <script>
         var canvas = document.getElementById('tela1')
         var ctx = canvas.getContext('2d')
-        let px = 0, py = 10
+        let px = 0, py = 0
         let anima
         let larRet = altRet = 50
         let lCanvas = aCanvas = 500
-        let dx = 1
+        let dy = 0, dx = 5
 
         function desenha() {            
             ctx.clearRect(0,0,lCanvas,aCanvas)
@@ -25,10 +25,18 @@
             ctx.fillStyle = '#00f'
             ctx.fillRect(px,py,larRet,altRet)
 
-            px+=dx
-            
-            if (px >= lCanvas-larRet || px <= 0) dx *= -1     
+            px += dx
+            py += dy
 
+            if (px >= lCanvas-larRet && py <= 0 || px <= 0 && py >= aCanvas-altRet) {
+                dy = dx 
+                dx = 0
+            }
+            if (px >= lCanvas-larRet && py >= aCanvas-altRet || px <= 0 && py <= 0) {
+                dx = -dy 
+                dy = 0
+            }
+                    
             anima = requestAnimationFrame(desenha)
         }
     </script>
