@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Aula 5</title>
+    <title>Canvas - Aula 6</title>
     
 </head>
 <body onload="desenha()">
@@ -17,7 +17,7 @@
         let anima
         let larRet = altRet = 50
         let lCanvas = aCanvas = 500
-        let dx = 5
+        let dy = 0, dx = 5
 
         function desenha() {            
             ctx.clearRect(0,0,lCanvas,aCanvas)
@@ -30,8 +30,16 @@
             ctx.strokeRect(px,py,larRet,altRet)
 
             px += dx
+            py += dy
 
-            if (px >= lCanvas-larRet || px <= 0) dx *= -1
+            if (px >= lCanvas-larRet && py <= 0 || px <= 0 && py >= aCanvas-altRet) {
+                dy = dx 
+                dx = 0
+            }
+            if (px >= lCanvas-larRet && py >= aCanvas-altRet || px <= 0 && py <= 0) {
+                dx = -dy 
+                dy = 0
+            }
                     
             anima = requestAnimationFrame(desenha)
         }
