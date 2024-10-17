@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 08</title>
+</head>
+<body>
+    <canvas id="desenho1" width="500" height="500" style="border: 1px solid black;">
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+    <script>
+        let canvas = document.getElementById('desenho1')
+        let ctx = canvas.getContext('2d')
+
+        let tamMax = 40
+        let tamMin = 10
+        let maxCirculos = 50
+
+        function desenha() {
+            for (let i=0;i<maxCirculos;i++) {
+                ctx.beginPath()
+                ctx.fillStyle = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+                ctx.arc(Math.random()*500,Math.random()*500,Math.random()*tamMax+tamMin,0,Math.PI/180*360,true)
+                ctx.fill()
+            }
+        }
+
+        desenha()//7:00
+        
+    </script>
+</body>
+</html>
