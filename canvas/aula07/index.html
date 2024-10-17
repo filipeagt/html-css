@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 7</title>
+</head>
+<body>
+    <canvas id="desenho1" width="500" height="500" style="border: 1px solid black;">
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+    <script>
+        let canvas = document.getElementById('desenho1')
+        let ctx = canvas.getContext('2d')
+
+        function desenha() {
+            //posX, posY, raio, angIni, angFim, sentido
+            //sentido: true=horário / false=anti-horário
+            ctx.fillStyle = '#000'
+            ctx.arc(100,100,100,0,Math.PI/180*90,true)
+            ctx.fill()
+            ctx.beginPath()
+            ctx.fillStyle = '#f00'
+            ctx.arc(100,100,100,0,Math.PI/180*90,false)
+            ctx.fill()
+        }
+
+        desenha()
+    </script>
+</body>
+</html>
