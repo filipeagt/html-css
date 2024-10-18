@@ -19,6 +19,12 @@
         let angIni = 0
         let angFim = 0
 
+
+        let posX = Math.random()*400
+        let posY = Math.random()*400
+        let dx = dy = 5
+        let raio = 50
+
         function desenha() {
 
             ctx.clearRect(0,0,500,500)
@@ -39,10 +45,22 @@
 
             if (angFim > 360) angFim = 0
 
+            //Desafio aula 8
+            ctx.beginPath()
+            ctx.fillStyle = '#f00'
+            ctx.arc(posX+50,posY+50,raio,0,Math.PI*2)
+            ctx.fill()
+
+            posX+=dx
+            posY+=dy
+
+            if (posX >= 400 || posX < 0) dx = -dx
+            if (posY >= 400 || posY < 0) dy *= -1
+
             anima = requestAnimationFrame(desenha)
         }
 
-        desenha()//7:00
+        desenha()
         
     </script>
 </body>
