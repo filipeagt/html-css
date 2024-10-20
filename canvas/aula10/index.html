@@ -13,6 +13,7 @@
     <script>
         let canvas = document.getElementById('desenho1')
         let ctx = canvas.getContext('2d')
+        let pos = 0
 
         // let nave = new Image()
         // nave.src = 'nave.png'
@@ -23,9 +24,11 @@
 
         let cores = new Image()
         cores.src = 'cores.jpeg'
+
         cores.addEventListener('load', ()=>{
             //Imagem,xIniRecorte,yIniRecorte,lRecorte,aRecorte,posx,posy,largImg,altImg
-            ctx.drawImage(cores,50,0,50,50,0,0,200,200)
+            ctx.drawImage(cores,pos,0,50,50,0,0,200,200)
+                        
         })
 
     </script>

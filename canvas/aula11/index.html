@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 11</title>
+</head>
+<body>
+    <!-- <img src="cores.jpeg"><br> -->
+    <canvas id="desenho1" width="500" height="500" style="border: 1px solid black;">
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+    <script>
+        let canvas = document.getElementById('desenho1')
+        let ctx = canvas.getContext('2d')
+
+        // let nave = new Image()
+        // nave.src = 'nave.png'
+        // nave.addEventListener('load', ()=>{
+        //     //Imagem,posx,posy,larg,alt
+        //     ctx.drawImage(nave, 0, 0, 50, 50)
+        // })
+
+        let jogador = new Image()
+        jogador.src = 'jogador.png'
+        let numSprite = 0
+        let posIniX = 0
+        let largSprite = 0
+        let numSprites = 4
+
+        // cores.addEventListener('load', ()=>{
+        //     //Imagem,xIniRecorte,yIniRecorte,lRecorte,aRecorte,posx,posy,largImg,altImg
+        //     lImagem = cores.width
+        //     largSprite = lImagem / numSprites
+        //     posIniX = largSprite * numSprite
+        //     ctx.drawImage(cores,posIniX,0,largSprite,50,0,0,200,200)
+                        
+        // })
+
+        jogador.addEventListener('load', ()=>{
+            //Imagem,xIniRecorte,yIniRecorte,lRecorte,aRecorte,posx,posy,largImg,altImg
+            largSprite = jogador.width / numSprites
+            altSprite = jogador.height / numSprites
+            posIniX = largSprite * numSprite
+            ctx.drawImage(jogador,posIniX,0,largSprite,altSprite,0,0,largSprite,altSprite)
+                        
+        })
+
+        let anima = setInterval(()=>{
+            ctx.clearRect(0,0,500,500)
+            numSprite++            
+            if (numSprite >= 4) numSprite = 0
+            posIniX = largSprite * numSprite
+            ctx.drawImage(jogador,posIniX,0,largSprite,altSprite,0,0,largSprite,altSprite)
+        }, 200)
+
+    </script>
+</body>
+</html>
