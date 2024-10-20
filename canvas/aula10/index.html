@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 10</title>
+</head>
+<body>
+    <img src="cores.jpeg"><br>
+    <canvas id="desenho1" width="500" height="500" style="border: 1px solid black;">
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+    <script>
+        let canvas = document.getElementById('desenho1')
+        let ctx = canvas.getContext('2d')
+
+        // let nave = new Image()
+        // nave.src = 'nave.png'
+        // nave.addEventListener('load', ()=>{
+        //     //Imagem,posx,posy,larg,alt
+        //     ctx.drawImage(nave, 0, 0, 50, 50)
+        // })
+
+        let cores = new Image()
+        cores.src = 'cores.jpeg'
+        cores.addEventListener('load', ()=>{
+            //Imagem,xIniRecorte,yIniRecorte,lRecorte,aRecorte,posx,posy,largImg,altImg
+            ctx.drawImage(cores,50,0,50,50,0,0,200,200)
+        })
+
+    </script>
+</body>
+</html>
