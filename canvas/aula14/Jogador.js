@@ -8,7 +8,7 @@ class Jogador {
         this.nave = new Image()
         this.nave.src = "nave.png"
         this.nave.addEventListener('load', ()=>{
-            desenhar()
+            this.desenhar()
         })
     }
 
@@ -20,15 +20,15 @@ class Jogador {
             this.x += this.vel
         }
         if (this.teclado.cima) {
-            this.x -= this.vel
+            this.y -= this.vel
         }
         if (this.teclado.baixo) {
-            this.x += this.vel
+            this.y += this.vel
         }
     }
 
     desenhar() {
-        gerenciar()
+        this.gerenciar()
         this.ctx.drawImage(this.nave,this.x,this.y)
     }
 }
