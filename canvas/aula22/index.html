@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 22 - Textos</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid black;">
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+    <br>
+
+    <script>
+        let canvas =  document.getElementById('desenho1')
+        let ctx = canvas.getContext('2d')
+
+        let canal = "CFB Cursos"
+        let nome = "Filipe"
+        ctx.font = "50px arial"
+        ctx.fillStyle = "#008"
+        ctx.strokeText(canal, 10, 100)
+        ctx.fillText(nome, 10, 200, 100)
+    </script>
+</body>
+</html>
