@@ -3,7 +3,7 @@ class Bola {
         this.ctx = ctx
         this.jogador = jogador
         this.movendo = false
-        this.dirX = 0
+        this.dirX = -1
         this.dirY = 0
         this.largura = 20
         this.altura = 20        
@@ -15,7 +15,8 @@ class Bola {
 
     iniciar() {
         this.movendo = true
-        this.dirX = -1
+        this.dirY = 0
+        //this.dirX = -1
         //this.dirY = Math.random()*10 > 5 ? -1 : 1
     }
 
@@ -28,10 +29,14 @@ class Bola {
             if (this.x >= this.ctx.canvas.width-this.largura) {
                 this.dirX = -1
                 pj1++
+                this.resetarBola()
+                this.dirX = -1
             }
             if (this.x <= 0) {
                 this.dirX = 1
                 pj2++
+                this.resetarBola()
+                this.dirX = 1
             }
             //Colisão com bordas superior e inferior
             if (this.y >= this.ctx.canvas.height-this.altura) {
@@ -50,20 +55,16 @@ class Bola {
                 console.log(this.dirY)
             }
         }
-        /*
-        if (this.teclado.esquerda && this.x > 0) {
-            this.x -= this.vel
-        }
-        if (this.teclado.direita && this.x < this.ctx.canvas.width/2-this.largura) {
-            this.x += this.vel
-        }
-        if (this.teclado.cima && this.y > 0) {
-            this.y -= this.vel
-        }
-        if (this.teclado.baixo && this.y < this.ctx.canvas.height-this.altura) {
-            this.y += this.vel
-        }
-        */
+    }
+
+    resetarBola() {
+        this.movendo = false
+        this.x = this.ctx.canvas.width/2 - this.largura/2
+        this.y = this.ctx.canvas.height/2 - this.altura/2
+        jogador.x = 0
+        jogador.y = this.ctx.canvas.height/2 - jogador.altura/2
+        cpu.x = this.ctx.canvas.width - cpu.largura
+        cpu.y = this.ctx.canvas.height/2 - cpu.altura/2
     }
 
     desenhar() {
