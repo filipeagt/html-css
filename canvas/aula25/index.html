@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 25</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid #000;">
+        <h3>Seu browser não possui suporte ao canvas</h3>
+    </canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('desenho1')
+        const ctx = canvas.getContext('2d')
+
+        ctx.shadowColor = 'rgba(0,0,0,0.4)'
+        ctx.shadowOffsetX = 10
+        ctx.shadowOffsetY = 10
+        ctx.shadowBlur = 10
+
+        ctx.fillStyle = '#f00'
+        ctx.fillRect(100,100,200,200)
+
+        ctx.shadowColor = 'rgba(0,0,0,0)'
+        ctx.fillStyle = '#00f'
+        ctx.fillRect(400,100,200,200)
+
+        ctx.shadowColor = 'rgba(0,0,0,0.5)'
+        ctx.shadowOffsetX = -10
+        ctx.shadowOffsetY = 10
+        ctx.shadowBlur = 10
+        ctx.fillStyle = '#0f0'
+        ctx.fillRect(700,100,200,200)
+
+    </script>
+</body>
+</html>
