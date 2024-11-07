@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 28</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid #000;">
+        <h3>Sew browser não possui suporte ao canvas</h3>
+    </canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('desenho1')
+        const ctx = canvas.getContext('2d')
+
+        ctx.beginPath()
+        //ctx.fillStyle = '#f00'
+        ctx.moveTo(400,150)
+        ctx.bezierCurveTo(500,0,800,200,400,500)
+        ctx.bezierCurveTo(0,200,300,0,400,150)
+        ctx.stroke()
+        //ctx.fill()
+        ctx.closePath()
+    </script>
+</body>
+</html>
