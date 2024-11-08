@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 32</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid #000;">
+        <h3>O seu browser não é compatível com canvas</h3>
+    </canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('desenho1')
+        const ctx = canvas.getContext('2d')
+        
+        let padrao1 = new Image()
+        let padrao2 = new Image()
+
+        padrao1.src = 'pattern001.png'
+        padrao2.src = 'pattern002.png'
+
+        padrao1.onload = ()=>{
+            let ptrn = ctx.createPattern(padrao1,'repeat')
+            ctx.fillStyle = ptrn
+            ctx.fillRect(0,0,300,300)
+        }
+
+        padrao2.onload = function () {
+            let ptrn = ctx.createPattern(padrao2,'repeat')
+            ctx.fillStyle = ptrn
+            ctx.fillRect(350,0,300,300)
+        }
+    </script>
+</body>
+</html>
