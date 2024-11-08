@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 31</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid #000;">
+        <h3>O seu browser não é compatível com canvas</h3>
+    </canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('desenho1')
+        const ctx = canvas.getContext('2d')
+        
+        let gradiente1 = ctx.createRadialGradient(30,30,5,100,100,300) //x1,y1,r1,x2,y2,r2
+        gradiente1.addColorStop(0,'#00f')
+        gradiente1.addColorStop(1,'#ff0')
+        ctx.fillStyle = gradiente1
+        ctx.fillRect(0,0,300,300)
+    </script>
+</body>
+</html>
