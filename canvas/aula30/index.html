@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 30</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid #000;">
+        <h3>O seu browser não é compatível com canvas</h3>
+    </canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('desenho1')
+        const ctx = canvas.getContext('2d')
+
+        let px1,py1,px2,py2
+        px1=150
+        py1=0
+        px2=300
+        py2=300
+        let gradiente1 = ctx.createLinearGradient(px1,py1,px2,py2) //x1,y1,x2,y2
+        gradiente1.addColorStop(0,'#f00')
+        gradiente1.addColorStop(1,'#ff0')
+        ctx.fillStyle = gradiente1
+        ctx.fillRect(px1,py1,px2,py2)
+    </script>
+</body>
+</html>
