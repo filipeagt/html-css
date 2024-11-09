@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 33</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height="500" style="border: 1px solid #000;">
+        <h3>O seu browser não é compatível com canvas</h3>
+    </canvas>
+    <br>
+    <script>
+        const canvas = document.getElementById('desenho1')
+        const ctx = canvas.getContext('2d')
+        
+        ctx.fillStyle = '#00f'
+        ctx.fillRect(0,0,200,200)
+
+        ctx.translate(100,100)
+
+        ctx.fillStyle = '#f00'
+        ctx.fillRect(0,0,200,200)
+
+
+        ctx.translate(100,100)
+        
+        ctx.fillStyle = '#0f0'
+        ctx.fillRect(0,0,200,200)
+    </script>
+</body>
+</html>
