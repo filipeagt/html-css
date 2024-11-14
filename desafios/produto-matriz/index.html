@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto de matrizes 3x3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 30px;
+            background-color: whitesmoke;
+        }
+        h1, h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        table {
+            margin: auto;
+            margin-top: 10px;
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+            min-height: 70px;
+        }
+        input[type="number"] {
+            max-width: 30px;
+            height: 20px;
+
+        }
+        table#resultado {           
+            border-spacing: 15px 0px;
+        }
+        #matrizes {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            margin: auto;            
+        }
+        .sinal {
+            font-size: 2rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Produto de matrizes 3x3</h1>
+    <div id="matrizes">
+        <table>
+            <tr>
+                <td><input type="number" name="a1" id="a1" value="0"></td>
+                <td><input type="number" name="a2" id="a2" value="0"></td>
+                <td><input type="number" name="a3" id="a3" value="0"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="a4" id="a4" value="0"></td>
+                <td><input type="number" name="a5" id="a5" value="0"></td>
+                <td><input type="number" name="a6" id="a6" value="0"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="a7" id="a7" value="0"></td>
+                <td><input type="number" name="a8" id="a8" value="0"></td>
+                <td><input type="number" name="a9" id="a9" value="0"></td>
+            </tr>
+        </table>
+        <div class="sinal">x</div>
+        <table>
+            <tr>
+                <td><input type="number" name="b1" id="b1" value="0" step="0.001"></td>
+                <td><input type="number" name="b2" id="b2" value="0" step="0.001"></td>
+                <td><input type="number" name="b3" id="b3" value="0" step="0.001"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="b4" id="b4" value="0" step="0.001"></td>
+                <td><input type="number" name="b5" id="b5" value="0" step="0.001"></td>
+                <td><input type="number" name="b6" id="b6" value="0" step="0.001"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="b7" id="b7" value="0" step="0.001"></td>
+                <td><input type="number" name="b8" id="b8" value="0" step="0.001"></td>
+                <td><input type="number" name="b9" id="b9" value="0" step="0.001"></td>
+            </tr>
+        </table>
+        <div class="sinal">=</div>
+        <table id="resultado">
+            <tr>
+                <td id="c1">0</td>
+                <td id="c2">0</td>
+                <td id="c3">0</td>
+            </tr>
+            <tr>
+                <td id="c4">0</td>
+                <td id="c5">0</td>
+                <td id="c6">0</td>
+            </tr>
+            <tr>
+                <td id="c7">0</td>
+                <td id="c8">0</td>
+                <td id="c9">0</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <input type="button" value="Calcular" onclick="calcular()">   
+   
+    <script>
+        var matrizA
+        var matrizB
+        
+        function calcular() {
+            matrizA = [[0,0,0],[0,0,0],[0,0,0]]
+            matrizB = [[0,0,0],[0,0,0],[0,0,0]]
+
+            let cont = 1
+            for (let linha=0 ; linha<3 ; linha++) {
+                for (let coluna=0 ; coluna<3 ; coluna++) {
+                    matrizA[linha][coluna] = Number(document.getElementById('a'+cont).value)
+                    cont++
+                }
+            }
+            
+            cont = 1
+            for (let linha=0 ; linha<3 ; linha++) {
+                for (let coluna=0 ; coluna<3 ; coluna++) {
+                    matrizB[linha][coluna] = Number(document.getElementById('b'+cont).value)
+                    cont++
+                }
+            }
+
+            
+            cont = 1
+            let soma = 0
+            for (let i=0 ; i<3 ; i++) {
+                for (let j=0 ; j<3 ; j++) {
+                    for (let k=0 ; k<3 ; k++) {
+                        soma += matrizA[i][k]*matrizB[k][j]
+                    }
+                    document.getElementById('c'+cont).innerHTML = soma
+                    cont++
+                    soma = 0
+                }
+            }
+            //alert(matrizA)
+        }
+        
+    </script>
+</body>
+</html>
