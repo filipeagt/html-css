@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz inversa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 30px;
+        }
+        table {
+            margin: auto;
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+        }
+        input[type="number"] {
+            max-width: 30px;
+            height: 20px;
+        }
+        table#inversa {           
+            border-spacing: 15px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Calculo de matriz inversa 3x3</h1>
+    <table>
+        <tr>
+            <td><input type="number" name="a1" id="a1" value="0"></td>
+            <td><input type="number" name="a2" id="a2" value="0"></td>
+            <td><input type="number" name="a3" id="a3" value="0"></td>
+        </tr>
+        <tr>
+            <td><input type="number" name="a4" id="a4" value="0"></td>
+            <td><input type="number" name="a5" id="a5" value="0"></td>
+            <td><input type="number" name="a6" id="a6" value="0"></td>
+        </tr>
+        <tr>
+            <td><input type="number" name="a7" id="a7" value="0"></td>
+            <td><input type="number" name="a8" id="a8" value="0"></td>
+            <td><input type="number" name="a9" id="a9" value="0"></td>
+        </tr>
+    </table>
+    <br>
+    <input type="button" value="Calcular" onclick="inversa()">
+    <br>
+    <h2>Determinante</h2>
+    <p id="resDeterminante">0</p>
+    <h2>Inversa</h2>
+    <p id="resInversa"></p>
+    <table id="inversa">
+        <tr>
+            <td id="b1"></td>
+            <td id="b2"></td>
+            <td id="b3"></td>
+        </tr>
+        <tr>
+            <td id="b4"></td>
+            <td id="b5"></td>
+            <td id="b6"></td>
+        </tr>
+        <tr>
+            <td id="b7"></td>
+            <td id="b8"></td>
+            <td id="b9"></td>
+        </tr>
+    </table>
+    <script>
+        var matriz
+        var matrizTmp
+        var det
+        const resDeterminante = document.getElementById('resDeterminante')
+        const resInversa = document.getElementById('resInversa')
+
+        function inversa() {     
+            matriz = [[0,0,0],[0,0,0],[0,0,0]]
+            matrizTmp = [[0,0,0],[0,0,0],[0,0,0]]
+            det = 0       
+            let cont = 1
+            
+            for (let linha=0 ; linha<3 ; linha++) {
+                for (let coluna=0 ; coluna<3 ; coluna++) {
+                    matriz[linha][coluna] = parseInt(document.getElementById('a'+cont).value)
+                    cont++
+                }
+            }
+
+            determinante()
+            resDeterminante.innerHTML = det
+            if (det != 0) {
+                resInversa.innerHTML = ''
+                adjunta()
+                let cont = 1
+                for (let linha=0 ; linha<3 ; linha++) {
+                    for (let coluna=0 ; coluna<3 ; coluna++) {
+                        document.getElementById('b'+cont).innerHTML = Number((matriz[linha][coluna]*(1/det)).toFixed(3)).toLocaleString()
+                        cont++
+                    }
+                }
+            } else { //det == 0
+                resInversa.innerHTML = 'Essa matriz não tem inversa!'
+            }
+            //alert(det)
+        }
+
+        function determinante() {
+            det = 0
+            det += matriz[0][0]*matriz[1][1]*matriz[2][2]
+            det += matriz[0][1]*matriz[1][2]*matriz[2][0]
+            det += matriz[0][2]*matriz[1][0]*matriz[2][1]
+            det -= matriz[0][2]*matriz[1][1]*matriz[2][0]
+            det -= matriz[0][0]*matriz[1][2]*matriz[2][1]
+            det -= matriz[0][1]*matriz[1][0]*matriz[2][2]
+        }
+
+        function cofatores() {
+            matrizTmp[0][0] = matriz[1][1]*matriz[2][2]-matriz[1][2]*matriz[2][1]
+            matrizTmp[0][1] = -(matriz[1][0]*matriz[2][2]-matriz[1][2]*matriz[2][0])
+            matrizTmp[0][2] = matriz[1][0]*matriz[2][1]-matriz[1][1]*matriz[2][0]
+            matrizTmp[1][0] = -(matriz[0][1]*matriz[2][2]-matriz[0][2]*matriz[2][1])
+            matrizTmp[1][1] = matriz[0][0]*matriz[2][2]-matriz[0][2]*matriz[2][0]
+            matrizTmp[1][2] = -(matriz[0][0]*matriz[2][1]-matriz[0][1]*matriz[2][0])
+            matrizTmp[2][0] = matriz[0][1]*matriz[1][2]-matriz[0][2]*matriz[1][1]
+            matrizTmp[2][1] = -(matriz[0][0]*matriz[1][2]-matriz[0][2]*matriz[1][0])
+            matrizTmp[2][2] = matriz[0][0]*matriz[1][1]-matriz[0][1]*matriz[1][0]
+        }
+
+        function transposta() {
+            for (let linha=0 ; linha<3 ; linha++) {
+                for (let coluna=0 ; coluna<3 ; coluna++) {
+                    matriz[linha][coluna] = matrizTmp[coluna][linha]
+                }
+            }
+        }
+
+        function adjunta() {
+            cofatores()
+            transposta()
+        }
+    </script>
+</body>
+</html>
