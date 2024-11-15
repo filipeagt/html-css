@@ -23,8 +23,11 @@ const renderCalendar = () => {
                          //Para manter o número de semanas exibidas fixas em 6
 
     if (indiceTurno < 0) indiceTurno = 10 + indiceTurno
-    if (firstDayofMonth == 6 && currMonth != 1) { //começa no sábado e não é fevereiro
+    //começa no sábado e não é fevereiro ou começa na sexta e tem 31 dias
+    if (firstDayofMonth == 6 && currMonth != 1 || firstDayofMonth == 5 && lastDateofMonth == 31) { 
         diasMesQVem = 6  
+    } else if (lastDateofMonth == 28 && firstDayofMonth == 0) { //fevereiro de ano bissexto e começa no domingo
+        diasMesQVem = 20
     }
 
     for (let i = firstDayofMonth; i > 0; i--) {

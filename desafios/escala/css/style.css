@@ -28,7 +28,7 @@ body {
     background: #2C2C2E;    /* iPhone dark mode secondary background */
     border-radius: 20px;    /* More iOS-like rounded corners */
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .calendar header {
@@ -132,4 +132,8 @@ header .current-date {
 
 .calendar .noite {
     background-color: var(--background);
+}
+
+.calendar .legenda {
+    min-width: 50px;
 }
