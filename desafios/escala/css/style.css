@@ -1,0 +1,135 @@
+:root {
+    --primary: #FF9F0A;         /* iPhone calculator orange */
+    --dark: #E58F09;           /* Darker orange for hover */
+    --light: #fff5e7;         /* Light orange background */
+    --grey: #A5A5A5;          /* iPhone calculator grey */
+    --background: #1C1C1E;    /* iPhone dark mode background */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+}
+
+.calendar {
+    width: 95%;
+    max-width: 600px;
+    background: #2C2C2E;    /* iPhone dark mode secondary background */
+    border-radius: 20px;    /* More iOS-like rounded corners */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    padding-bottom: 20px;
+}
+
+.calendar header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 30px 10px;
+    color: #FFFFFF;
+}
+
+header .calendar-navigation {
+    display: flex;
+    gap: 20px;
+}
+
+header .calendar-navigation span {
+    height: 38px;
+    width: 38px;
+    color: var(--primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+header .calendar-navigation span:hover {
+    background: rgba(255, 159, 10, 0.2);
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.calendar ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0 30px;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+    color: var(--grey);
+}
+
+.calendar ul li {
+    position: relative;
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 10px 0;
+    color: #FFFFFF;
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+}
+
+.calendar .days li.inactive {
+    color: #636366;    /* iPhone dark mode inactive text */
+}
+
+.calendar .days li.active {
+    color: #000000;
+}
+
+.calendar .days li::before {
+    position: absolute;
+    content: "";
+    height: 35px;
+    width: 35px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar .days li.active::before {
+    background: var(--primary);
+}
+
+.calendar .days li:not(.active):hover::before {
+    background: rgba(255, 159, 10, 0.2);
+}
+
+.calendar .manha {
+    background-color: var(--grey);
+   
+}
+
+.calendar .tarde {
+    background-color: var(--light);
+    color: var(--background);
+}
+
+.calendar .noite {
+    background-color: var(--background);
+}
