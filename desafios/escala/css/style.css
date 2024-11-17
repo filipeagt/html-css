@@ -1,9 +1,9 @@
 :root {
-    --primary: #FF9F0A;         /* iPhone calculator orange */
-    --dark: #E58F09;           /* Darker orange for hover */
-    --light: #fff5e7;         /* Light orange background */
-    --grey: #A5A5A5;          /* iPhone calculator grey */
-    --background: #1C1C1E;    /* iPhone dark mode background */
+    --primary: #FF9F0A;         
+    --dark: #373744;           
+    --light: #fff5e7;         
+    --grey: #A5A5A5;         
+    --background: #000;    
 }
 
 * {
@@ -25,8 +25,8 @@ body {
 .calendar {
     width: 95%;
     max-width: 600px;
-    background: #2C2C2E;    /* iPhone dark mode secondary background */
-    border-radius: 20px;    /* More iOS-like rounded corners */
+    background: var(--dark);    
+    border-radius: 20px;    
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     padding-bottom: 30px;
 }
