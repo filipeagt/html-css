@@ -1,5 +1,6 @@
 :root {
-    --primary: #FF9F0A;         
+    --primary: #FF9F0A;
+    --secondary: #ff9d0a8e;    
     --dark: #373744;           
     --light: #fff5e7;         
     --grey: #A5A5A5;         
@@ -135,5 +136,9 @@ header .current-date {
 }
 
 .calendar .legenda {
-    min-width: 50px;
+    min-width: 60px;
+}
+
+.calendar .feriado {
+    color: var(--primary);
 }

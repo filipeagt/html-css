@@ -5,12 +5,13 @@ const prevNextIcon = document.querySelectorAll(".calendar-navigation span");
 let date = new Date();
 let currYear = date.getFullYear();
 let currMonth = date.getMonth();
-let reference = new Date('2024/01/02')//Turno começa numa manhã
+let reference = new Date('2024/01/02');//Turno começa numa manhã
+var listaFeriados; //lista obtida via API
 
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
                 "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-const renderCalendar = () => {
+function renderCalendar() {    
     const firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
     const lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
     const lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
@@ -37,14 +38,28 @@ const renderCalendar = () => {
     }
 
     for (let i = 1; i <= lastDateofMonth; i++) {
+        let isHoliday = ''
+        let description = ''
+        let tagAbbr = ''
+        let fechaAbbr = ''
+
         if (indiceTurno > -1 && indiceTurno < 2) turno = ' manha'
         else if (indiceTurno < 4) turno = ' tarde'
         else if (indiceTurno < 6) turno = ' noite'
         else turno = ''
+        
+        for (let feriado = 0 ; feriado < listaFeriados.length ; feriado++) {
+            if (new Date(listaFeriados[feriado].date+"T03:00:00.000Z").toLocaleDateString() == new Date(currYear, currMonth, i).toLocaleDateString()) {
+                isHoliday = ' feriado';
+                description = `${listaFeriados[feriado].type.charAt(0).toUpperCase()+listaFeriados[feriado].type.slice(1)}  ${listaFeriados[feriado].level}:  ${listaFeriados[feriado].name}`;
+                tagAbbr = `<abbr title="${description}" tabindex="1000">`
+                fechaAbbr = '';                
+            }
+        }
 
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                       && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}${turno}">${i}</li>`;
+        liTag += `<li class="${isToday}${turno}${isHoliday}">${tagAbbr}${i}${fechaAbbr}</li>`;
 
         indiceTurno++
         if (indiceTurno == 10) indiceTurno = 0
@@ -60,7 +75,21 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
 }
 
-renderCalendar();
+function obterFeriados() {
+    const ajax = new XMLHttpRequest();
+    
+    ajax.onload = function () {
+        listaFeriados = JSON.parse(this.responseText); 
+        //alert(listaFeriados.length);  
+        renderCalendar();     
+    }
+
+    ajax.open('GET', `https://api.invertexto.com/v1/holidays/${currYear}?token=16211|bz6VfM9tYxsIgGZxH5x2GEcFbqVcjyMH&state=SP`);
+    ajax.send();
+}
+
+obterFeriados();
+
 
 prevNextIcon.forEach(icon => {
     icon.addEventListener("click", () => {
@@ -70,10 +99,12 @@ prevNextIcon.forEach(icon => {
             date = new Date(currYear, currMonth);
             currYear = date.getFullYear();
             currMonth = date.getMonth();
+            obterFeriados();
         } else {
             date = new Date();
+            renderCalendar();
         }
-        renderCalendar();
+        
     });
 });
 
@@ -95,3 +126,4 @@ daysTag.addEventListener("click", (e) => {
         e.target.classList.add("active");
     }
 });
+
