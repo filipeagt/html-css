@@ -1,0 +1,15 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 10px;
+    grid-auto-rows: 200px;
+}
+
+.wrapper div {
+    background-color: royalblue;
+    padding: 1rem;
+}
+
+.wrapper div:nth-child(even) {
+    background-color: skyblue;
+}
