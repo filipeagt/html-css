@@ -52,8 +52,8 @@ function renderCalendar() {
             if (new Date(listaFeriados[feriado].date+"T03:00:00.000Z").toLocaleDateString() == new Date(currYear, currMonth, i).toLocaleDateString()) {
                 isHoliday = ' feriado';
                 description = `${listaFeriados[feriado].type.charAt(0).toUpperCase()+listaFeriados[feriado].type.slice(1)}  ${listaFeriados[feriado].level}:  ${listaFeriados[feriado].name}`;
-                tagAbbr = `<abbr title="${description}" tabindex="1000">`
-                fechaAbbr = '';                
+                tagAbbr = `<abbr title="${description}">`
+                fechaAbbr = '</abbr>';                
             }
         }
 
