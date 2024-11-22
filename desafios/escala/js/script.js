@@ -109,7 +109,7 @@ prevNextIcon.forEach(icon => {
 });
 
 // Adicionar funcionalidade de clique nos dias
-daysTag.addEventListener("click", (e) => {
+/*daysTag.addEventListener("click", (e) => {
     if(e.target.tagName === "LI" && !e.target.classList.contains("inactive")) {
         const selectedDay = e.target.innerText;
         const selectedDate = new Date(currYear, currMonth, selectedDay);
@@ -125,5 +125,5 @@ daysTag.addEventListener("click", (e) => {
         // Adiciona classe active ao dia selecionado
         e.target.classList.add("active");
     }
-});
+});*/
 
