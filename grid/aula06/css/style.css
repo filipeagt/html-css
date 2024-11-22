@@ -1,15 +1,21 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-auto-rows: 200px; */
-    height: 96vh;
+    grid-auto-rows: 200px;
+    /* align-items: center; */
+    /* justify-items: center; */
 }
 
-.wrapper div {
+.wrapper > div:nth-child(2) {
+    align-self: center;
+    justify-self: center;
+}
+
+.wrapper > div {
     background-color: royalblue;
     padding: 1rem;
 }
 
-.wrapper div:nth-child(even) {
+.wrapper > div:nth-child(even) {
     background-color: skyblue;
 }
