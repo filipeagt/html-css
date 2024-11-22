@@ -156,20 +156,9 @@ body {
     transform: translate(-50%, -50%);
 }
 
-@media (orientation: landscape) {
-    #relogio {
-        width: 95vh;
-        height: 95vh;
-        font-size: 10vh;
-        border: 3vh solid black;
-    }
-}
-
-@media (orientation: portrait) {
-    #relogio {
-        width: 95vw;
-        height: 95vw;
-        font-size: 10vw;
-        border: 3vw solid black;
-    }
+#relogio {
+    width: 95vmin;
+    height: 95vmin;
+    font-size: 10vmin;
+    border: 3vmin solid black;
 }
