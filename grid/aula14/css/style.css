@@ -1,0 +1,33 @@
+@media (min-width: 768px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: [site-start] 1fr [content-start] repeat(4, 1fr) [site-end];
+        grid-template-rows: [site-top] 200px [content-top] 200px [content-bottom] 200px [site-bottom];
+        /* grid-auto-rows: 200px; */
+        gap: .5rem
+    }
+}
+
+header, footer {
+    grid-column: site;
+}
+
+main {
+    grid-column: content-start / site-end;
+}
+
+aside {
+    grid-column: site-start / content-start;
+    grid-row: content-top / content-bottom
+}
+
+.wrapper > * {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    padding: 10px;
+    background-color: royalblue;    
+}
+
+.wrapper > *:nth-child(even) {
+    background-color: skyblue;
+}
