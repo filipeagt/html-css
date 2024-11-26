@@ -1,0 +1,36 @@
+@media (min-width: 768px) {
+    .wrapper {
+        display: grid;
+        /* grid-template-columns: repeat(auto-fill, 100px); */
+        grid-template-columns: repeat(auto-fit, 100px);
+        grid-auto-rows: 200px;
+        gap: .5rem;
+
+        grid-template-areas:
+            "header header header header header"
+            "aside  main   main   main main"
+            "footer footer footer footer footer"
+        ;
+    }
+}
+header {
+    grid-area: header;
+}
+main {
+    grid-area: main;
+}
+aside {
+    grid-area: aside;
+}
+footer {
+    grid-area: footer;
+}
+.wrapper > * {
+    background-color: skyblue;
+    font-size: 2rem;    
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+.wrapper > *:nth-child(odd) {
+    background-color: royalblue;
+}
