@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe o número</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Pensei em número entre 0 e 1000, tente adivinhar...</h1>
+        <p>Tentativas: <strong id="tentativas">0</strong></p>
+        <output id="out"></output>
+        <span class="input">
+            <input type="number" name="num" id="num" max="1000" min="0" required>
+            <input type="button" value="Enviar" onclick="adivinha()">
+        </span>
+    </div>
+    
+</body>
+<script src="js/script.js"></script>
+</html>
