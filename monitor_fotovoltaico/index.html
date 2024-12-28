@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento Fotovoltaico</title>
+    <script src="js/mqtt.min.js.js"></script>
+    <script src="js/chart.js.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Monitoramento Sistema Fotovoltaico</h1>
+        <div id="connection-status" class="connection-status disconnected">Desconectado</div>
+      </div>
+      
+      <div class="dashboard">
+        <div class="card">
+          <h2>Bateria 1</h2>
+          <div class="battery-status">
+            <div class="battery-icon">
+              <div class="battery-level" id="battery1-level" style="width: 0%"></div>
+            </div>
+            <span id="battery1-voltage">0V</span>
+          </div>
+          <canvas id="battery1-chart"></canvas>
+        </div>
+        
+        <div class="card">
+          <h2>Bateria 2</h2>
+          <div class="battery-status">
+            <div class="battery-icon">
+              <div class="battery-level" id="battery2-level" style="width: 0%"></div>
+            </div>
+            <span id="battery2-voltage">0V</span>
+          </div>
+          <canvas id="battery2-chart"></canvas>
+        </div>
+        
+        <div class="card">
+          <h2>Status do Sistema</h2>
+          <div id="system-info">
+            <p>Última atualização: <span id="last-update">--</span></p>
+            <p>Tensão Total: <span id="total-voltage">0V</span></p>
+            <p>Status: <span id="system-status">Normal</span></p>
+          </div>
+        </div>
+      </div>
+    
+      <script src="js/script.js"></script>
+</body>
+</html>
