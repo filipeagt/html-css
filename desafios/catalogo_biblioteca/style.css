@@ -1,0 +1,81 @@
+/* Estilos Mobile First */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Pequenas telas (telefones) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+/* Telas médias (tablets) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* Telas grandes (desktops) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Telas extra grandes (desktops grandes) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+#book-list .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#book-list .book-card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Telas médias e maiores */
+@media (min-width: 768px) {
+  #book-list .book-card {
+    width: 50%; /* Dois livros por linha em tablets e desktops */
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+/* Telas grandes e extra grandes */
+@media (min-width: 992px) {
+  #book-list .book-card {
+    width: 33.33%; /* Três livros por linha em desktops */
+  }
+}
+
+.book-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.book-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
