@@ -79,3 +79,8 @@ body {
   height: auto;
   margin-bottom: 10px;
 }
+
+#logo {
+  filter: invert(1);
+  height: 25px;
+}
