@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const url = "https://bibliotecasocial.pythonanywhere.com/catalogo/api/livros/";
     try {
       const response = await fetch(url);
-      type: 
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
@@ -39,22 +38,44 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       function updatePaginationButtons() {
-          document.querySelectorAll('.page-item').forEach(item => item.classList.remove('active'));
-          document.getElementById(`page-${currentPage}`).classList.add('active');
-
         const totalPages = Math.ceil(bookList.length / itemsPerPage);
+        const paginationElement = document.querySelector('.pagination');
+
+        // Remover a classe 'active' de todos os itens de página
+        paginationElement.querySelectorAll('.page-item').forEach(item => item.classList.remove('active'));
+
+        // Marcar a página atual como ativa
+        const currentPageItem = document.getElementById(`page-${currentPage}`);
+        if (currentPageItem) {
+          currentPageItem.classList.add('active');
+        }
+
+        // Habilitar ou desabilitar os botões de "Próxima" e "Anterior"
         document.getElementById('previous-page').classList.toggle('disabled', currentPage === 1);
         document.getElementById('next-page').classList.toggle('disabled', currentPage === totalPages);
 
-            document.getElementById('next-page').querySelector('a').setAttribute('data-page', currentPage + 1);
-            document.getElementById('previous-page').querySelector('a').setAttribute('data-page', currentPage - 1);
+        // Atualizar os atributos 'data-page' dos botões de navegação
+        document.getElementById('next-page').querySelector('a').setAttribute('data-page', currentPage);
+        document.getElementById('previous-page').querySelector('a').setAttribute('data-page', currentPage);
+
+        // Criar os botões de página dinamicamente, se necessário
+        for (let i = 1; i <= totalPages; i++) {
+          let pageItem = document.getElementById(`page-${i}`);
+          if (!pageItem) {
+            pageItem = document.createElement('li');
+            pageItem.classList.add('page-item');
+            pageItem.id = `page-${i}`;
+            pageItem.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+            paginationElement.insertBefore(pageItem, document.getElementById('next-page'));
+          }
+        }
       }
 
       // Configuração inicial
       displayBooks(currentPage);
       updatePaginationButtons();
 
-      // Event listeners para os botões de paginação
+      // Event listeners para os botões de navegação por número de página
       document.querySelectorAll('.pagination .page-link').forEach(item => {
         item.addEventListener('click', function(event) {
           event.preventDefault();
@@ -66,12 +87,31 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       });
+
+      // Event listeners para os botões de "Próxima" e "Anterior"
+      document.getElementById('next-page').addEventListener('click', function(event) {
+        event.preventDefault();
+        if (currentPage < Math.ceil(bookList.length / itemsPerPage)) {
+          currentPage++; // Avança uma página
+          displayBooks(currentPage);
+          updatePaginationButtons();
+        }
+      });
+
+      document.getElementById('previous-page').addEventListener('click', function(event) {
+        event.preventDefault();
+        if (currentPage > 1) {
+          currentPage--; // Retrocede uma página
+          displayBooks(currentPage);
+          updatePaginationButtons();
+        }
+      });
+
     } catch (error) {
       console.error(error.message);
     }
   }
 
   getData();
-  
-  
+
 });
