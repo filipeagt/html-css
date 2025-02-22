@@ -2,11 +2,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca de Livros</title>
+  <title>Biblioteca Social</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" sizes="192x192" href="img/android-chrome-192x192.png">
 </head>
-<body>
+<body onload="getData('')">
   <header class="bg-dark text-white py-3 sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
@@ -27,21 +29,21 @@
                 Gêneros
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Infantil</a></li>
+                <li><a class="dropdown-item" href="generos.html">Infantil</a></li>
                 
               </ul>
             </li>
           </ul>
-          <form class="d-flex ms-auto">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Pesquisar</button>
-          </form>
+          <div class="d-flex ms-auto">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" id="pesquisa" onkeydown="seenter(event)">
+            <button class="btn btn-outline-light" onclick="pesquisar()" id="btn-pesquisa">Pesquisar</button>
+          </div>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="container py-5">
+  <main class="container py-5" id="main">
     <section id="book-list">
       <h2>Livros</h2>
       <div class="row">
@@ -56,8 +58,7 @@
           <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
         </li>
         <li class="page-item active" aria-current="page" id="page-1"><a class="page-link" href="#" data-page="1">1</a></li>
-        <li class="page-item" id="page-2"><a class="page-link" href="#" data-page="2">2</a></li>
-         <li class="page-item" id="page-3"><a class="page-link" href="#" data-page="3">3</a></li>
+        
         <li class="page-item" id="next-page">
           <a class="page-link" href="#" data-page="2">Próxima</a>
         </li>
