@@ -116,7 +116,7 @@ function pesquisar() {
   const main = document.getElementById('main');
   main.innerHTML = 
    `<section id="book-list">
-      <h2>Resultados da pesquisa</h2>
+      <h1>Resultados da pesquisa</h1>
       <div class="row">
         <!-- Livros serão adicionados aqui via JavaScript -->
       </div>
