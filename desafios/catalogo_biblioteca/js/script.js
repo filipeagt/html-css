@@ -28,7 +28,7 @@ async function getLivros(pesquisa='', autor_id='', genero_id='') {
         bookCard.classList.add('book-card', 'col-sm-6', 'col-md-4'); 
 
         bookCard.innerHTML = `
-          <img src="${book.capa}" alt="${book.título}" class="img-fluid">
+          <img src="${book.capa}" alt="${book.título}" class="img-fluid" onclick="detalheLivro('${book.id}')">
           <h3>${book.título}</h3>
           <p><strong>Autor:</strong> ${book.autor.nome} ${book.autor.sobrenome}</p>
         `;
@@ -159,7 +159,7 @@ async function listaAutores(id='') {
     }
 
     const autores = await response.json();
-    // console.log(autores)
+
     if(id == '') {
       autor_list.innerHTML = '<h1 class="mb-3">Autores</h1>';
       autor_list.innerHTML += '<ul class="list-group">';
@@ -194,6 +194,71 @@ async function listaAutores(id='') {
       </nav>`;
       getLivros('',autores.id);
     }
+
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+async function detalheLivro(livro_id='') {
+  const url = "https://bibliotecasocial.pythonanywhere.com/catalogo/api/exemplares/?livro_id=" + livro_id;
+  
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const exemplares = await response.json();
+
+    const main = document.getElementById('main');
+    main.innerHTML = 
+    `<section id="book-list">
+      <h1>Livro</h1>
+      <div class="row">
+        <!-- Livros serão adicionados aqui via JavaScript -->
+      </div>
+    </section>`;
+
+    const bookListSection = document.querySelector('#book-list .row');
+
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card', 'col-sm-6', 'col-md-4'); 
+
+    bookCard.innerHTML = `
+      <img src="${exemplares[0].book.capa}" alt="${exemplares[0].book.título}" class="img-fluid" onclick="detalheLivro('${exemplares[0].book.id}')">
+      <h3>${exemplares[0].book.título}</h3>
+      <p><strong>Autor:</strong> ${exemplares[0].book.autor.nome} ${exemplares[0].book.autor.sobrenome}</p>
+    `;
+
+    bookListSection.appendChild(bookCard);
+
+    let lista_generos = [];
+    for(let pos in exemplares[0].book.gênero) {
+      lista_generos.push(exemplares[0].book.gênero[pos].name);
+    }
+
+    let html_exemplares = '<hr>'
+    for(let i in exemplares) {
+      html_exemplares +=
+     `<h5>Status</h5>
+      ${exemplares[i].status == 'a' ? '<p class="text-success">Disponível' : '<p class="text-danger">Emprestado'}</p>
+      <h5>Data de devolução</h5>
+      <p>${exemplares[i].due_back != null ? new Date(exemplares[i].due_back).toLocaleDateString('pt-BR') : '-'}</p>
+      <h5>ID</h5>
+      <p>${exemplares[i].id}</p>
+      <hr>`
+    }
+
+    main.innerHTML += 
+     `<h5>Resumo</h5>
+      <p>${exemplares[0].book.resumo}</p>
+      <h5>Gênero</h5>
+      <p>${lista_generos.join(', ')}</p>
+      <h5>Faixa etária</h5>
+      <p>${exemplares[0].book.idade} anos.</p>
+      <h2>Exemplares</h2>
+      ${html_exemplares}`;
 
   } catch (error) {
     console.error(error.message);
