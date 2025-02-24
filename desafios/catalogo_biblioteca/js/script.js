@@ -1,14 +1,16 @@
-async function getData(pesquisa) {
-  const url = "https://bibliotecasocial.pythonanywhere.com/catalogo/api/livros/?pesquisa=" + pesquisa;
+async function getLivros(pesquisa='', autor_id='', genero_id='') {
+  let addr = `https://bibliotecasocial.pythonanywhere.com/catalogo/api/livros/`;
+  if (pesquisa != '') addr += `?pesquisa=${pesquisa}`;
+  if (autor_id != '') addr += `?autor_id=${autor_id}`;
+  if (genero_id != '') addr += `?genero_id=${genero_id}`;
+  const url = addr;
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
 
-    const json = await response.json();
-    console.log(json);
-    const bookList = json;
+    const bookList = await response.json();
 
     const bookListSection = document.querySelector('#book-list .row');
     const itemsPerPage = 10;
@@ -136,12 +138,64 @@ function pesquisar() {
       </ul>
     </nav>`;
 
-  getData(pesquisa);
+  getLivros(pesquisa);
 }
 
 function seenter(event) {
   if (event.key === "Enter") {
     event.preventDefault();
     document.getElementById('btn-pesquisa').click();
+  }
+}
+
+async function listaAutores(id='') {
+  const url = "https://bibliotecasocial.pythonanywhere.com/catalogo/api/autores/" + id;
+  const autor_list = document.getElementById('autor-list');
+  
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const autores = await response.json();
+    // console.log(autores)
+    if(id == '') {
+      autor_list.innerHTML = '<h1 class="mb-3">Autores</h1>';
+      autor_list.innerHTML += '<ul class="list-group">';
+      for(let autor in autores) {
+        autor_list.innerHTML += `<button class="list-group-item list-group-item-action" onclick="listaAutores('${autores[autor].id}')">${autores[autor].nome} ${autores[autor].sobrenome}</button>`;
+      }
+      autor_list.innerHTML += '</ul>';
+    }
+    else {
+      const main = document.getElementById('main');
+      main.innerHTML = 
+     `<section id="book-list">
+        <h1>Autor</h1>
+        <h2>${autores.nome} ${autores.sobrenome}</h2>
+        <div class="row">
+          <!-- Livros serão adicionados aqui via JavaScript -->
+        </div>
+      </section>
+
+      <!-- Paginação -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled" id="previous-page">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+          </li>
+          <li class="page-item active" aria-current="page" id="page-1"><a class="page-link" href="#" data-page="1">1</a></li>
+          
+          <li class="page-item disabled" id="next-page">
+            <a class="page-link" href="#" data-page="2">Próxima</a>
+          </li>
+        </ul>
+      </nav>`;
+      getLivros('',autores.id);
+    }
+
+  } catch (error) {
+    console.error(error.message);
   }
 }
