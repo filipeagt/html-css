@@ -1,3 +1,4 @@
+var bookList = [];
 async function getLivros(pesquisa='', autor_id='', genero_id='') {
   let addr = `https://bibliotecasocial.pythonanywhere.com/catalogo/api/livros/`;
   if (pesquisa != '') addr += `?pesquisa=${pesquisa}`;
@@ -10,7 +11,7 @@ async function getLivros(pesquisa='', autor_id='', genero_id='') {
       throw new Error(`Response status: ${response.status}`);
     }
 
-    const bookList = await response.json();
+    bookList = await response.json();
 
     const bookListSection = document.querySelector('#book-list .row');
     const itemsPerPage = 10;
@@ -35,6 +36,15 @@ async function getLivros(pesquisa='', autor_id='', genero_id='') {
 
         bookListSection.appendChild(bookCard);
       });
+      if(bookList.length == 0) {
+        if(pesquisa != '') {
+          bookListSection.innerHTML += '<p>Não foram encontrados resultados para a pesquisa.</p>'
+        } else if (autor_id != '') {
+          bookListSection.innerHTML += '<p>A escola não possui livros cadastrados para este autor.</p>'
+        } else if (genero_id != '') {
+          bookListSection.innerHTML += '<p>A escola não possui livros cadastrados para este gênero.</p>'
+        }
+      }
     }
 
     function updatePaginationButtons() {
@@ -192,7 +202,9 @@ async function listaAutores(id='') {
           </li>
         </ul>
       </nav>`;
+
       getLivros('',autores.id);
+    
     }
 
   } catch (error) {
@@ -210,6 +222,7 @@ async function detalheLivro(livro_id='') {
     }
 
     const exemplares = await response.json();
+    //console.log(exemplares);
 
     const main = document.getElementById('main');
     main.innerHTML = 
@@ -260,6 +273,59 @@ async function detalheLivro(livro_id='') {
       <h2>Exemplares</h2>
       ${html_exemplares}`;
 
+  } catch (error) {
+    //console.error(error.message);
+    detalheLivroSemExemplar(livro_id);
+  }
+}
+
+async function detalheLivroSemExemplar(livro_id) {
+  const url = "https://bibliotecasocial.pythonanywhere.com/catalogo/api/livros/" + livro_id;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const book = await response.json();
+    //console.log(exemplares);
+
+    const main = document.getElementById('main');
+    main.innerHTML = 
+    `<section id="book-list">
+      <h1>Livro</h1>
+      <div class="row">
+        <!-- Livros serão adicionados aqui via JavaScript -->
+      </div>
+    </section>`;
+
+    const bookListSection = document.querySelector('#book-list .row');
+
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card', 'col-sm-6', 'col-md-4'); 
+
+    bookCard.innerHTML = `
+      <img src="${book.capa}" alt="${book.título}" class="img-fluid" onclick="detalheLivro('${book.id}')">
+      <h3>${book.título}</h3>
+      <p><strong>Autor:</strong> ${book.autor.nome} ${book.autor.sobrenome}</p>
+    `;
+
+    bookListSection.appendChild(bookCard);
+
+    let lista_generos = [];
+    for(let pos in book.gênero) {
+      lista_generos.push(book.gênero[pos].name);
+    }
+
+    main.innerHTML += 
+     `<h5>Resumo</h5>
+      <p>${book.resumo}</p>
+      <h5>Gênero</h5>
+      <p>${lista_generos.join(', ')}</p>
+      <h5>Faixa etária</h5>
+      <p>${book.idade} anos.</p>
+      <h2>Exemplares</h2>
+      <p>A escola não possui exemplares deste livro.</p>`;
   } catch (error) {
     console.error(error.message);
   }
