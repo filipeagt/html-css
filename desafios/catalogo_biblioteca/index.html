@@ -29,18 +29,18 @@
               <a class="nav-link" href="autores.html">Autores</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="generos.html" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"  onclick="listaGeneros()">
                 Gêneros
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="generos.html">Infantil</a></li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-generos">
+                <li><a class="dropdown-item" href="#">...</a></li>
                 
               </ul>
             </li>
           </ul>
           <div class="d-flex ms-auto">
             <input class="form-control me-2" type="search" placeholder="Livro, autor ou gênero" aria-label="Search" id="pesquisa" onkeydown="seenter(event)">
-            <button class="btn btn-outline-light" onclick="pesquisar()" id="btn-pesquisa">Pesquisar</button>
+            <button class="btn btn-warning" onclick="pesquisar()" id="btn-pesquisa">Pesquisar</button>
           </div>
         </div>
       </div>

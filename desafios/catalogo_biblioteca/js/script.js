@@ -330,3 +330,49 @@ async function detalheLivroSemExemplar(livro_id) {
     console.error(error.message);
   }
 }
+
+async function listaGeneros(genero_id='') {
+  const url = "https://bibliotecasocial.pythonanywhere.com/catalogo/api/generos/" + genero_id;
+  const dropGeneros = document.getElementById('dropdown-generos');
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status ${response.status}`);
+    }
+    const generos = await response.json();
+    if (genero_id == '') {
+      dropGeneros.innerHTML = '';
+      for (let pos in generos) {      
+        dropGeneros.innerHTML += `<li><a class="dropdown-item" onclick="listaGeneros('${generos[pos].id}')">${generos[pos].name}</a></li>`
+      }
+    } else {
+      const main = document.getElementById('main');
+      main.innerHTML = 
+     `<section id="book-list">
+        <h1>Gênero</h1>
+        <h2>${generos.name}</h2>
+        <div class="row">
+          <!-- Livros serão adicionados aqui via JavaScript -->
+        </div>
+      </section>
+
+      <!-- Paginação -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled" id="previous-page">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+          </li>
+          <li class="page-item active" aria-current="page" id="page-1"><a class="page-link" href="#" data-page="1">1</a></li>
+          
+          <li class="page-item disabled" id="next-page">
+            <a class="page-link" href="#" data-page="2">Próxima</a>
+          </li>
+        </ul>
+      </nav>`;
+
+      getLivros('', '', generos.id);
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}

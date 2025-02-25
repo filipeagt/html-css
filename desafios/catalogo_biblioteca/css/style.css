@@ -84,3 +84,7 @@ body {
   filter: invert(1);
   height: 25px;
 }
+
+img.button {
+  filter: invert(1);
+}
