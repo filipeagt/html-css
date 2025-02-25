@@ -6,6 +6,10 @@ body {
   padding: 0;
 }
 
+main {
+  min-height: 90lvh;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
