@@ -172,11 +172,11 @@ async function listaAutores(id='') {
 
     if(id == '') {
       autor_list.innerHTML = '<h1 class="mb-3">Autores</h1>';
-      autor_list.innerHTML += '<ul class="list-group">';
+      autor_list.innerHTML += '<div>';
       for(let autor in autores) {
-        autor_list.innerHTML += `<button class="list-group-item list-group-item-action" onclick="listaAutores('${autores[autor].id}')">${autores[autor].nome} ${autores[autor].sobrenome}</button>`;
+        autor_list.innerHTML += `<button type="button" class="btn btn-link" onclick="listaAutores('${autores[autor].id}')">${autores[autor].nome} ${autores[autor].sobrenome}</button><br>`;
       }
-      autor_list.innerHTML += '</ul>';
+      autor_list.innerHTML += '</div>';
     }
     else {
       const main = document.getElementById('main');
