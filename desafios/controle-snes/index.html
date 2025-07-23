@@ -4,12 +4,16 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>SNES Controller</title>
+    <title>Smart Racer</title>
     <style>
         * {
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
+        }
+
+        html {
+            overflow: hidden;
         }
 
         body {
@@ -23,6 +27,7 @@
             user-select: none;
             width: 100dvw;
             height: 100dvh;
+            overflow: hidden;
         }
 
         .snes-controller {
@@ -50,8 +55,8 @@
         /* D-Pad */
         .d-pad {
             position: relative;
-            width: 120px;
-            height: 120px;
+            width: 135px;
+            height: 135px;
         }
 
         .d-pad-btn {
@@ -67,44 +72,44 @@
         }
 
         .d-pad-btn.up {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             top: 0;
-            left: 40px;
+            left: 45px;
             border-radius: 5px 5px 0 0;
         }
 
         .d-pad-btn.right {
-            width: 40px;
-            height: 40px;
-            top: 40px;
+            width: 45px;
+            height: 45px;
+            top: 45px;
             right: 0;
             border-radius: 0 5px 5px 0;
         }
 
         .d-pad-btn.down {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             bottom: 0;
-            left: 40px;
+            left: 45px;
             border-radius: 0 0 5px 5px;
             z-index: 1;
         }
 
         .d-pad-btn.left {
-            width: 40px;
-            height: 40px;
-            top: 40px;
+            width: 45px;
+            height: 45px;
+            top: 45px;
             left: 0;
             border-radius: 5px 0 0 5px;
         }
 
         .d-pad-center {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            top: 40px;
-            left: 40px;
+            width: 45px;
+            height: 45px;
+            top: 45px;
+            left: 45px;
             background-color: #5a5a5a;
             box-shadow: 0 3px 0 #3a3a3a, inset 0 1px 1px rgba(255, 255, 255, 0.3);
         }
@@ -259,8 +264,8 @@
         </div>
         <div class='center-section'>
             <div class='brand'>
-                <span class='super-nintendo'>Super Brinquedo</span><br>
-                <span class='entertainment-system'>ENTERTAINMENT CAR</span>
+                <span class='super-nintendo'>Smart Racer</span><br>
+                <span class='entertainment-system'>WIFI AUTOMOBILE</span>
             </div>
             <div class='center-buttons'>
                 <div class='select-start-btn select' data-key='select'>SELECT</div>
