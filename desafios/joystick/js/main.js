@@ -106,8 +106,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         else if (button.classList.contains('b')) text += 'B';
         else if (button.classList.contains('x')) text += 'X';
         else if (button.classList.contains('a')) text += 'A';
-        else if (button.classList.contains('l-shoulder')) text += 'L';
-        else if (button.classList.contains('r-shoulder')) text += 'R';
+        else if (button.classList.contains('l1')) text += 'L1';
+        else if (button.classList.contains('r1')) text += 'R1';
+        else if (button.classList.contains('l2')) text += 'L2';
+        else if (button.classList.contains('r2')) text += 'R2';
         else if (button.classList.contains('start')) text += 'Start';
         else if (button.classList.contains('select')) text += 'Select';
         else if (button.classList.contains('joystick-stick')) {
