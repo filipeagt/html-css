@@ -1,0 +1,265 @@
+:root {
+    --cor1: #F0FAFF;
+    --cor2: #eff5fa;
+    --cor3: #63E4F2;
+    --cor4: #2ECEF2;
+    --cor5: #263173;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+nav {
+    display: block;
+    width: 150px;
+    flex-shrink: 0;
+    padding: 5px;
+    min-height: 100vh;
+    background-color: var(--cor1);
+    border-right: 1px solid gainsboro;
+}
+
+nav h2 {
+    font-size: 1.1em;
+    margin-left: -5px;
+    font-weight: 700;
+    padding: 5px 0px;
+}
+
+nav h2 > span {
+    display: inline-block;
+    background-color: var(--cor3);
+    padding: 2px;
+    border-radius: 5px;
+    color: white;
+    margin-left: -5px;
+    width: 28px;
+    font-size: 1.5em;
+}
+
+nav > a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+nav > a:hover {
+    background-color: var(--cor2);
+}
+
+nav > a.logo:hover {
+    background-color: var(--cor1);
+}
+
+nav > a.active {
+    background-color: var(--cor3);
+    color: white;
+}
+
+nav > a span {
+    margin-right: 10px;
+}
+
+header {
+    padding: 15px;
+    min-height: 50px;
+}
+
+main {
+    display: block;
+    width: 100vw;
+    padding: 0px;
+    background-color: var(--cor2);
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: auto;
+}
+
+.disabled {
+    color: grey;
+    font-weight: 400;
+}
+
+#cards {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+#cards > .card {
+    font-size: 1.2em;
+    height: 70px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--cor1);
+    background-image: linear-gradient(to right, var(--cor1), #e6f7ff);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 5px 0px;
+    padding: 15px;
+    position: relative;
+}
+
+.card button {
+    padding: 3px;
+    font-size: 1.5em;
+    position: absolute;
+    right: 15px;
+    top: 17px;
+}
+
+.card button > .mdi {
+    margin-right: 0px;
+}
+
+.card .mdi {
+    color: var(--cor4);
+    margin-right: 5px;
+}
+
+.card .valor, .card .unidade {
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+#volume-meter {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 70%;
+    min-width: 30px;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    transform: translate(-50%, -50%);
+    appearance: none;
+}
+
+#volume-meter::-webkit-progress-bar {
+    background-color: var(--cor2);
+    border: 1px solid gainsboro;
+}
+
+#volume-meter::-webkit-progress-value {
+    background-color: var(--cor4);
+}
+
+#volume-meter::-moz-progress-bar {
+    background-color: #2ECEF2;
+}
+
+.status {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: var(--cor4);
+}
+
+.status.on {
+    background-color: lightgreen;
+}
+
+.status.off {
+    background-color: lightcoral;
+}
+
+.status.alert {
+    background-color: rgb(255, 225, 95);
+}
+
+#status-volume {
+    width: fit-content;
+    height: 16px;    
+    border-radius: 8px;
+    padding: 0px 5px;
+    font-size: .8em;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+    right: 15px;
+}
+
+#status-volume > .mdi {
+    color: white;
+}
+
+
+
+#charts {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+
+}
+
+#charts > .chart {
+    height: 250px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--cor1);
+    background-image: linear-gradient(to right, var(--cor1), #e6f7ff);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 5px 0px;
+}
+
+footer {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+
+    #cards > .card {
+        width: 48%;
+        height: 100px;
+        padding: 25px;
+    }
+
+    #volume-meter {
+        display: block;
+    }
+
+    .card button {
+        top: 30px;
+    }
+
+    #charts > .chart {
+        height: 280px;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+
+    #cards > .card {
+        width: 30%;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    #cards > .card {
+        width: 23%;
+    }
+
+    #charts > .chart {
+        width: 48.5%;
+    }
+}

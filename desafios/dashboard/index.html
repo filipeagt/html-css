@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard na unha</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav id="sidebar">
+        <a class="logo" href="#">
+            <h2><span class="mdi mdi-water-check-outline"></span>AquaMonitor</h2>
+        </a>
+        <a href="#" class="active"><span class="mdi mdi-chart-areaspline"></span>Dashboard</a>
+        <a href="#"><span class="mdi mdi-history"></span>Histórico</a>
+        <a href="#"><span class="mdi mdi-alert-outline"></span>Alertas</a>
+        <a href="#"><span class="mdi mdi-wrench-outline"></span>Configurações</a>
+    </nav>
+    <main>
+        <header>
+            <h1>Monitoramento da caixa d'Água</h1>
+            <p class="disabled">Acompanhe o consumo e vazão em tempo real</p>
+        </header>
+        <section id="cards">
+            <div class="card">
+                <h3 class="disabled"><span class="mdi mdi-cup-water"></span>Volume</h3>
+                <span class="valor">500</span><span class="unidade"> L</span>
+                <progress id="volume-meter" value="800" min="0" max="1000"></progress>
+                <span class="mdi mdi-water-alert status" id="status-volume"> Normal</span>
+            </div>
+            <div class="card">
+                <h3 class="disabled"><span class="mdi mdi-water-pump"></span>Vazão</h3>
+                <span class="valor">20</span><span class="unidade"> L/h</span>
+            </div>
+            <div class="card">
+                <h3 class="disabled"><span class="mdi mdi-pump"></span>Bomba</h3>
+                <span id="status-bomba" class="status on"></span>
+                <span class="valor">Ligada</span>
+                <button><span class="mdi mdi-power"></span></button>
+            </div>
+            <div class="card">
+                <h3 class="disabled"><span class="mdi mdi-wifi-check"></span>MQTT</h3>
+                <span id="status-mqtt" class="status on"></span>
+                <span class="valor">Conectado</span>
+            </div>
+        </section>
+        <section id="charts">
+            <div class="chart">
+                <canvas id="waterLevelChart"
+                    style="display: block; box-sizing: border-box; width: 90%; height: 90%;"></canvas>
+            </div>
+            <div class="chart"></div>
+            <div class="chart"></div>
+            <div class="chart"></div>
+        </section>
+        <footer>
+            <p>Desenvoldo para o projeto integrador IV - Univesp</p>
+        </footer>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
