@@ -33,21 +33,25 @@
                 <span class="valor">500</span><span class="unidade"> L</span>
                 <progress id="volume-meter" value="800" min="0" max="1000"></progress>
                 <span class="mdi mdi-water-alert status" id="status-volume"> Normal</span>
+                <p class="legenda disabled">Autonomia 37h</p>
             </div>
             <div class="card">
                 <h3 class="disabled"><span class="mdi mdi-water-pump"></span>Vazão</h3>
                 <span class="valor">20</span><span class="unidade"> L/h</span>
+                <p class="legenda disabled">Consumo atual</p>
             </div>
             <div class="card">
                 <h3 class="disabled"><span class="mdi mdi-pump"></span>Bomba</h3>
                 <span id="status-bomba" class="status on"></span>
                 <span class="valor">Ligada</span>
                 <button><span class="mdi mdi-power"></span></button>
+                <p class="legenda disabled">Ligada às 12:22</p>
             </div>
             <div class="card">
                 <h3 class="disabled"><span class="mdi mdi-wifi-check"></span>MQTT</h3>
                 <span id="status-mqtt" class="status on"></span>
                 <span class="valor">Conectado</span>
+                <p class="legenda disabled">Conectado ao tópico ....</p>
             </div>
         </section>
         <section id="charts">
