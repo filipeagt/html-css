@@ -223,16 +223,19 @@ footer {
     text-align: center;
 }
 
+@media screen and (min-width: 600px) {
+    
+    #volume-meter {
+        display: block;
+    }
+}
+
 @media screen and (min-width: 768px) {
 
     #cards > .card {
         width: 48%;
         height: 100px;
         padding: 25px;
-    }
-
-    #volume-meter {
-        display: block;
     }
 
     .card button {
