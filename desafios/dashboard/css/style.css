@@ -73,6 +73,10 @@ nav > a span {
     margin-right: 10px;
 }
 
+nav > a.esconde {
+    display: none;
+}
+
 header {
     padding: 15px;
     min-height: 50px;
