@@ -1,4 +1,5 @@
 :root {
+    --cor0: #e6f7ff;
     --cor1: #F0FAFF;
     --cor2: #eff5fa;
     --cor3: #63E4F2;
@@ -19,7 +20,7 @@ body {
     flex-flow: row nowrap;
 }
 
-nav {
+nav#sidebar {
     display: block;
     width: 150px;
     flex-shrink: 0;
@@ -29,14 +30,14 @@ nav {
     border-right: 1px solid gainsboro;
 }
 
-nav h2 {
+nav#sidebar h2 {
     font-size: 1.1em;
     margin-left: -5px;
     font-weight: 700;
     padding: 5px 0px;
 }
 
-nav h2 > span {
+nav#sidebar h2>span {
     display: inline-block;
     background-color: var(--cor3);
     padding: 2px;
@@ -47,7 +48,7 @@ nav h2 > span {
     font-size: 1.5em;
 }
 
-nav > a {
+nav#sidebar>a {
     text-decoration: none;
     color: black;
     display: block;
@@ -56,24 +57,24 @@ nav > a {
     font-weight: bold;
 }
 
-nav > a:hover {
-    background-color: var(--cor2);
+nav#sidebar>a:hover {
+    background-color: var(--cor0);
 }
 
-nav > a.logo:hover {
+nav#sidebar>a.logo:hover {
     background-color: var(--cor1);
 }
 
-nav > a.active {
+nav#sidebar>a.active {
     background-color: var(--cor3);
     color: white;
 }
 
-nav > a span {
+nav#sidebar>a span {
     margin-right: 10px;
 }
 
-nav > a.esconde {
+nav#sidebar>a.esconde {
     display: none;
 }
 
@@ -84,10 +85,12 @@ header {
 
 main {
     display: block;
+    position: relative;
     width: 100vw;
     padding: 0px;
+    padding-bottom: 50px;   /*Espaçamento footer*/
     background-color: var(--cor2);
-    min-height: 100vh;
+    min-height: 105vh;
     height: 100%;
     overflow-x: auto;
 }
@@ -105,13 +108,13 @@ main {
     padding: 5px 10px;
 }
 
-#cards > .card {
+#cards>.card {
     font-size: 1.2em;
     height: 70px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid var(--cor1);
-    background-image: linear-gradient(to right, var(--cor1), #e6f7ff);
+    background-image: linear-gradient(to right, var(--cor1), var(--cor0));
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     margin: 5px 0px;
     padding: 8px 15px;
@@ -126,7 +129,7 @@ main {
     top: 17px;
 }
 
-.card button > .mdi {
+.card button>.mdi {
     margin-right: 0px;
 }
 
@@ -135,7 +138,8 @@ main {
     margin-right: 5px;
 }
 
-.card .valor, .card .unidade {
+.card .valor,
+.card .unidade {
     font-size: 1.2em;
     font-weight: 800;
 }
@@ -192,7 +196,7 @@ main {
 
 #status-volume {
     width: fit-content;
-    height: 16px;    
+    height: 16px;
     border-radius: 8px;
     padding: 0px 5px;
     font-size: .8em;
@@ -202,7 +206,7 @@ main {
     right: 15px;
 }
 
-#status-volume > .mdi {
+#status-volume>.mdi {
     color: white;
 }
 
@@ -217,22 +221,113 @@ main {
 
 }
 
-#charts > .chart {
+#charts>.chart {
     height: 250px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid var(--cor1);
-    background-image: linear-gradient(to right, var(--cor1), #e6f7ff);
+    background-image: linear-gradient(to right, var(--cor1), var(--cor0));
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     margin: 5px 0px;
 }
 
+#tabela {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+#tabela table {
+    display: block;
+    border-collapse: collapse;
+    border-radius: 5px;
+    border: 1px solid var(--cor1);
+    background-image: linear-gradient(to right, var(--cor1), var(--cor0));
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 15px 0px;
+    padding: 10px;
+}
+
+#tabela td,
+th {
+    padding: 10px;
+}
+
+#tabela tr {
+    border-bottom: 1px solid gainsboro;
+}
+
+.pagination {
+    font-size: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: var(--cor4);
+    border: 1px solid gainsboro;
+    background-color: var(--cor1);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.page-link:hover {
+    z-index: 2;
+    background-color: var(--cor0);
+    border-color: var(--cor4);
+}
+
+.page-link:focus {
+    z-index: 2;
+    background-color: var(--cor0);
+    border-color: var(--cor4);
+}
+
+.page-link.active,
+.active>.page-link {
+    z-index: 3;
+    color: var(--cor1);
+    background-color: var(--cor4);
+}
+
+.page-link.disabled,
+.disabled>.page-link {
+    color: grey;
+    pointer-events: none;
+    background-color: var(--cor2);
+    border-color: gainsboro;
+}
+
+.page-item:not(:first-child) .page-link {
+    margin-left: -1px;
+}
+
+.page-item:first-child .page-link {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0px 5px 5px 0px;
+}
+
 footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 20px;
     text-align: center;
 }
 
 @media screen and (min-width: 600px) {
-    
+
     #volume-meter {
         display: block;
     }
@@ -240,7 +335,7 @@ footer {
 
 @media screen and (min-width: 768px) {
 
-    #cards > .card {
+    #cards>.card {
         width: 48%;
         height: 100px;
         padding: 15px;
@@ -254,7 +349,7 @@ footer {
         top: 30px;
     }
 
-    #charts > .chart {
+    #charts>.chart {
         height: 280px;
     }
 
@@ -262,7 +357,7 @@ footer {
 
 @media screen and (min-width: 992px) {
 
-    #cards > .card {
+    #cards>.card {
         width: 30%;
     }
 
@@ -270,11 +365,11 @@ footer {
 
 @media screen and (min-width: 1200px) {
 
-    #cards > .card {
+    #cards>.card {
         width: 23%;
     }
 
-    #charts > .chart {
+    #charts>.chart {
         width: 48.5%;
     }
 }
