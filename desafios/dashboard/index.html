@@ -31,10 +31,10 @@
         <section id="cards">
             <div class="card">
                 <h3 class="disabled"><span class="mdi mdi-cup-water"></span>Volume</h3>
-                <span class="valor">500</span><span class="unidade"> L</span>
+                <span id="volume-meter-label" class="valor">500</span><span class="unidade"> L</span>
                 <progress id="volume-meter" value="800" min="0" max="1000"></progress>
                 <span class="mdi mdi-water-alert status" id="status-volume"> Normal</span>
-                <p class="legenda disabled">Autonomia 37h</p>
+                <p class="legenda disabled">Autonomia ??h</p>
             </div>
             <div class="card">
                 <h3 class="disabled"><span class="mdi mdi-water-pump"></span>Vazão</h3>
@@ -50,14 +50,14 @@
             </div>
             <div class="card">
                 <h3 class="disabled"><span class="mdi mdi-wifi-check"></span>MQTT</h3>
-                <span id="status-mqtt" class="status on"></span>
-                <span class="valor">Conectado</span>
-                <p class="legenda disabled">Conectado ao tópico ....</p>
+                <span id="status-mqtt" class="status alert"></span>
+                <span class="valor" id="valor-mqtt">Aguarde...</span>
+                <p id="mqtt-status-txt" class="legenda disabled">Conectado ao tópico ....</p>
             </div>
         </section>
         <section id="charts">
             <div class="chart">
-                <canvas id="waterLevelChart"
+                <canvas id="waterVolumeChart"
                     style="display: block; box-sizing: border-box; width: 90%; height: 90%;"></canvas>
             </div>
             <div class="chart"></div>
